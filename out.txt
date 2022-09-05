@@ -1,0 +1,204 @@
+Providing coordinates in a file
+./get-subseqs test-data/genome-1.fa test-data/genome-1.fa-coordinates did not produce the expected output
+1,12c1,4
+< chrom0  1   11
+< 
+< ['chrom0  1   11']
+< chrom0  11   21
+< 
+< ['chrom0  11   21']
+< chrom1  1   11
+< 
+< ['chrom1  1   11']
+< chrom1  5   11
+< 
+< ['chrom1  5   11']
+---
+> cgaagccgag
+> tctaccccca
+> tgattaaagc
+> taaagc
+
+./get-subseqs test-data/genome-2.fa test-data/genome-2.fa-coordinates did not produce the expected output
+1d0
+< chrom0  2   2
+3,15c2,5
+< ['chrom0  2   2']
+< chrom0  2   3
+< 
+< ['chrom0  2   3']
+< chrom0  2   4
+< 
+< ['chrom0  2   4']
+< chrom0  2   5
+< 
+< ['chrom0  2   5']
+< chrom0  2   6
+< 
+< ['chrom0  2   6']
+---
+> g
+> ga
+> gaa
+> gaag
+
+./get-subseqs test-data/genome-3.fa test-data/genome-3.fa-coordinates did not produce the expected output
+1,15c1,5
+< chrom1  1   2
+< 
+< ['chrom1  1   2']
+< chrom1  2   4
+< 
+< ['chrom1  2   4']
+< chrom1  4   7
+< 
+< ['chrom1  4   7']
+< chrom1  7   11
+< 
+< ['chrom1  7   11']
+< chrom1  11  21
+< 
+< ['chrom1  11  21']
+---
+> t
+> ga
+> tta
+> aagc
+> gcagcaaagg
+
+Providing coordinates on stdin
+cat test-data/genome-1.fa-coordinates | ./get-subseqs test-data/genome-1.fa did not produce the expected output
+1,12c1,4
+< chrom0  1   11
+< 
+< ['chrom0  1   11']
+< chrom0  11   21
+< 
+< ['chrom0  11   21']
+< chrom1  1   11
+< 
+< ['chrom1  1   11']
+< chrom1  5   11
+< 
+< ['chrom1  5   11']
+---
+> cgaagccgag
+> tctaccccca
+> tgattaaagc
+> taaagc
+
+cat test-data/genome-2.fa-coordinates | ./get-subseqs test-data/genome-2.fa did not produce the expected output
+1d0
+< chrom0  2   2
+3,15c2,5
+< ['chrom0  2   2']
+< chrom0  2   3
+< 
+< ['chrom0  2   3']
+< chrom0  2   4
+< 
+< ['chrom0  2   4']
+< chrom0  2   5
+< 
+< ['chrom0  2   5']
+< chrom0  2   6
+< 
+< ['chrom0  2   6']
+---
+> g
+> ga
+> gaa
+> gaag
+
+cat test-data/genome-3.fa-coordinates | ./get-subseqs test-data/genome-3.fa did not produce the expected output
+1,15c1,5
+< chrom1  1   2
+< 
+< ['chrom1  1   2']
+< chrom1  2   4
+< 
+< ['chrom1  2   4']
+< chrom1  4   7
+< 
+< ['chrom1  4   7']
+< chrom1  7   11
+< 
+< ['chrom1  7   11']
+< chrom1  11  21
+< 
+< ['chrom1  11  21']
+---
+> t
+> ga
+> tta
+> aagc
+> gcagcaaagg
+
+Providing coordinates as '-' (stdin)
+cat test-data/genome-1.fa-coordinates | ./get-subseqs test-data/genome-1.fa - did not produce the expected output
+1,12c1,4
+< chrom0  1   11
+< 
+< ['chrom0  1   11']
+< chrom0  11   21
+< 
+< ['chrom0  11   21']
+< chrom1  1   11
+< 
+< ['chrom1  1   11']
+< chrom1  5   11
+< 
+< ['chrom1  5   11']
+---
+> cgaagccgag
+> tctaccccca
+> tgattaaagc
+> taaagc
+
+cat test-data/genome-2.fa-coordinates | ./get-subseqs test-data/genome-2.fa - did not produce the expected output
+1d0
+< chrom0  2   2
+3,15c2,5
+< ['chrom0  2   2']
+< chrom0  2   3
+< 
+< ['chrom0  2   3']
+< chrom0  2   4
+< 
+< ['chrom0  2   4']
+< chrom0  2   5
+< 
+< ['chrom0  2   5']
+< chrom0  2   6
+< 
+< ['chrom0  2   6']
+---
+> g
+> ga
+> gaa
+> gaag
+
+cat test-data/genome-3.fa-coordinates | ./get-subseqs test-data/genome-3.fa - did not produce the expected output
+1,15c1,5
+< chrom1  1   2
+< 
+< ['chrom1  1   2']
+< chrom1  2   4
+< 
+< ['chrom1  2   4']
+< chrom1  4   7
+< 
+< ['chrom1  4   7']
+< chrom1  7   11
+< 
+< ['chrom1  7   11']
+< chrom1  11  21
+< 
+< ['chrom1  11  21']
+---
+> t
+> ga
+> tta
+> aagc
+> gcagcaaagg
+

@@ -1,5 +1,6 @@
 import argparse
 import sys
+from fastarecs import reader
 
 
 def main():
@@ -18,8 +19,24 @@ def main():
     )
     args = argparser.parse_args()
 
-    print(f"Now I need to process the records in {args.fasta}")
-    print(f"and the coordinates in {args.coords}")
+
+    #print(f"Now I need to process the records in {args.fasta}")
+    #print(f"and the coordinates in {args.coords}")
+
+    indexedFASTA = indexFASTA(args.fasta)
+    for coord in args.coords:
+        coordinate = list(filter(None,coord.strip().split(" ")))
+        seq = indexedFASTA[coordinate[0]]
+        print(seq[int(coordinate[1])-1:int(coordinate[2])-1])
+        
+
+
+def indexFASTA(fasta):
+    dic = {}
+    records = reader(fasta)
+    for record in records:
+        dic[record[0]] = record[1]
+    return dic
 
 
 if __name__ == '__main__':
